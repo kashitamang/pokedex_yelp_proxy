@@ -7,27 +7,30 @@ function App() {
   const [pokemon, setPokemon] = useState([]);
   const [pokemonQuery, setPokemonQuery] = useState([]);
 
-  useEffect(() => {
-    async function loadPokemonData() {
-      const data = await getPokemon();
+  async function loadPokemonData() {
+    const data = await getPokemon(pokemonQuery);
 
-      console.log(data);
-      setPokemon(data.results);
-    }
+    console.log(data);
+    setPokemon(data.results);
+  }
+
+  useEffect(() => {
     loadPokemonData();
   }, []);
     
   async function handleSubmit(e){
     e.preventDefault();
+    //use state to search for particular pokemon 
+    loadPokemonData();
 
   }
   console.log(pokemonQuery);
     
   return (
     <div className="App">
-      <header className="App-proxies">
+      <div className="pokemon-list">
         <form onSubmit={handleSubmit}>
-          <input type="text" onChange={e => setPokemonQuery(e.target.value)}></input>
+          <input value={pokemonQuery} type="text" onChange={e => setPokemonQuery(e.target.value)}></input>
           <button>search</button>
         </form>
         {
@@ -36,7 +39,7 @@ function App() {
             <img src={poke.url_image}/>
           </div>)
         }
-      </header>
+      </div>
     </div>
   );
 }
