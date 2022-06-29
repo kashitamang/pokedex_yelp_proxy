@@ -5,7 +5,6 @@ import YelpSearch from './Components/YelpSearch';
 
 
 function App() {
-  // console.log(yelpQuery);
   return (
     <div className="App">
       <YelpSearch/>
