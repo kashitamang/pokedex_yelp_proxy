@@ -1,6 +1,7 @@
 import React from 'react';
 import { getPokemon } from '../services/fetch-utils';
 import { useState, useEffect } from 'react';
+import PokemonList from './PokemonList';
 
 export default function PokemonSearch() {
   const [pokemon, setPokemon] = useState([]);
@@ -32,12 +33,7 @@ export default function PokemonSearch() {
         <input value={pokemonQuery} onChange={e => setPokemonQuery(e.target.value)}></input>
         <button>search</button>
       </form>
-      {
-        pokemon.map((poke, i) => <div className="pokemon"key={poke.pokemon + i}>
-          <p>{poke.pokemon}</p>
-          <img src={poke.url_image}/>
-        </div>)
-      }
+      <PokemonList pokemon={pokemon}/>
     </div>
   );
 }
