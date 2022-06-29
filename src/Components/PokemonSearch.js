@@ -16,7 +16,7 @@ export default function PokemonSearch() {
   
   useEffect(() => {
     loadPokemonData();
-  }, []);
+  });
       
   async function handleSubmit(e){
     e.preventDefault();
