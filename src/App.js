@@ -5,28 +5,24 @@ import { useState, useEffect } from 'react';
 import { getYelp } from './services/fetch-utils';
 
 function App() {
-  const [business, setBusiness] = useState([]);
-  const [yelpQuery, setYelpQuery] = useState('');
+  const [businesses, setBusinesses] = useState([]);
+  const [yelpQuery, setYelpQuery] = useState([]);
   
   async function loadYelpData() {
     const data = await getYelp(yelpQuery);
   
     console.log(data);
-    setBusiness(data.results);
+    setBusinesses(data.businesses);
   }
-  
-  useEffect(() => {
-    loadYelpData();
-  }, []);
       
   async function handleYelpSubmit(e){
     e.preventDefault();
       //use state to search for particular pokemon 
     await loadYelpData();
-    setYelpQuery('');
+    // setYelpQuery('');
   }
 
-  console.log(yelpQuery);
+  // console.log(yelpQuery);
   return (
     <div className="App">
       <PokemonSearch/>
@@ -37,9 +33,8 @@ function App() {
             <button>search</button> 
           </form>
         </div>
-        <h1>Yelp</h1> 
         {
-          business.map((business, i) => <div className="business"key={business.name + i}>
+          businesses.map((business, i) => <div className="business" key={business.name + i}>
             <p>{business.name}</p>
           </div>)
         }
