@@ -1,7 +1,8 @@
 .App {
   text-align: center;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
   background-color: #282c34;
 }
 
@@ -24,18 +25,18 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-  margin: 40px;
+  /* position: relative;
+  margin-left: 400px; */
 }
 
 .yelp-search {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-  margin: 40px;
+  /* position: fixed; */
 }
 
 .App-link {
@@ -51,6 +52,6 @@
   }
 }
 
-.pokemon img {
+.pokemon-list img {
   width: 100px; 
 }
