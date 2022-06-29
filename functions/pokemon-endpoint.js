@@ -12,10 +12,10 @@ const headers = {
 //require is how we import in node 
 
 
-exports.handler = async (event, context) => {
-  console.log('hello!');
+exports.handler = async (event) => {
+  // console.log('hello!');
   try {
-    console.log('query params', event.queryStringParameters.pokeQuery);
+    // console.log('query params', event.queryStringParameters.pokeQuery);
     //fetch is how we make requests 
     const response = await fetch(`https://pokedex-alchemy.herokuapp.com/api/pokedex?pokemon=${event.queryStringParameters.pokeQuery}`);
     const data = await response.json();
@@ -29,7 +29,7 @@ exports.handler = async (event, context) => {
     };
     //in the event of an error, it logs to the console
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     return {
       statusCode: 500,
       body: JSON.stringify({ error: 'Failed fetching data' }),
