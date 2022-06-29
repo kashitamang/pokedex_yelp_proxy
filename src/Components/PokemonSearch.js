@@ -20,9 +20,9 @@ export default function PokemonSearch() {
       
   async function handleSubmit(e){
     e.preventDefault();
+    console.log('submit!!!');
       //use state to search for particular pokemon 
-    loadPokemonData();
-       
+    await loadPokemonData();
     setPokemonQuery('');
   }
     // console.log(pokemonQuery);
