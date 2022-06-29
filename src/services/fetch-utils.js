@@ -14,3 +14,10 @@ getYelp(filter){
 
   return data;
 }
+export async function
+getWeather(filter){
+  const rawData = await fetch(`http://localhost:8888/.netlify/functions/weather-endpoint?weatherQuery=${filter}`);
+  const data = await rawData.json();
+
+  return data;
+}
