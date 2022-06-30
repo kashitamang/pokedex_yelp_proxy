@@ -1,46 +1,38 @@
 import React from 'react';
 import { getWeather } from '../services/fetch-utils';
-import { useState, useEffect } from 'react';
-// import PokemonList from './PokemonList';
+import { useState } from 'react';
+import WeatherList from '../Components/WeatherList';
 // import Spinner from '../Spinner';
 
-export default function PokemonSearch() {
-  const [weather, setWeather] = useState([]);
+export default function WeatherSearch() {
+  const [weatherData, setWeatherData] = useState([]);
   const [weatherQuery, setWeatherQuery] = useState('');
 //   const [isLoadingPokemon, setIsLoadingPokemon] = useState(false);
   
-  async function loadPokemonData() {
+  async function loadWeatherData() {
     // setIsLoadingPokemon(true);
     const data = await getWeather(weatherQuery);
     // setIsLoadingPokemon(false);
-      // console.log(data);
-    setWeather(data.results);
+    console.log(data);
+    setWeatherData(data.main);
   }
-  
-  useEffect(() => {
-    loadPokemonData();
-  }, []); //eslint-disable-line
-      
-  async function handleSubmit(e){
+
+  async function handleWeatherSubmit(e){
     e.preventDefault();
     // console.log('submit!!!');
       //use state to search for particular pokemon 
-    await loadPokemonData();
-    setPokemonQuery('');
+    await loadWeatherData();
+    // setWeatherQuery('');
   }
-    // console.log(pokemonQuery);
+//   console.log(weatherQuery);
       
   return (
-    <div className="pokemon-search">
-      <form onSubmit={handleSubmit}>
-        <input value={pokemonQuery} onChange={e => setPokemonQuery(e.target.value)}></input>
+    <div className="weather-search">
+      <form onSubmit={handleWeatherSubmit}>
+        <input value={weatherQuery} onChange={e => setWeatherQuery(e.target.value)}></input>
         <button>search</button>
       </form>
-      {
-        isLoadingPokemon 
-          ? <Spinner />
-          : <PokemonList pokemon={pokemon} />
-      }
+      <WeatherList weatherData={weatherData}/>
     </div>
   );
 }

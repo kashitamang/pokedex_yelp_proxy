@@ -17,7 +17,7 @@ exports.handler = async (event) => {
   try {
     // console.log('query params', event.queryStringParameters.pokeQuery);
     //fetch is how we make requests 
-    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${event.queryStringParameters.weatherQuery}&APPID=${process.env.WEATHER_API_KEY}`);
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${event.queryStringParameters.weatherQuery}&APPID=${process.env.WEATHER_API_KEY}&units=imperial`);
     const data = await response.json();
     const json = JSON.stringify(data);
     
