@@ -13,7 +13,7 @@ export default function WeatherSearch() {
     // setIsLoadingPokemon(true);
     const data = await getWeather(weatherQuery);
     // setIsLoadingPokemon(false);
-    console.log(data);
+    // console.log(data);
     setWeatherData(data.main);
   }
 
