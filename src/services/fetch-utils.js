@@ -5,7 +5,6 @@ getPokemon(filter){
   const rawData = await fetch(`/.netlify/functions/pokemon-endpoint?pokeQuery=${filter}`);
   const data = await rawData.json();
   
-  console.log('hello from getPokemon');
   return data;
 }
 export async function
