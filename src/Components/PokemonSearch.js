@@ -7,7 +7,7 @@ import Spinner from '../Spinner';
 export default function PokemonSearch() {
   const [pokemon, setPokemon] = useState([]);
   const [pokemonQuery, setPokemonQuery] = useState('');
-  const [isLoadingPokemon, setIsLoadingPokemon] = useState(false);
+  const [isLoadingPokemon, setIsLoadingPokemon] = useState(true);
   
   async function loadPokemonData() {
     setIsLoadingPokemon(true);
