@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #282c34;
 }
 
 .App-logo {
@@ -13,8 +17,7 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
+.pokemon-search {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -22,6 +25,28 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  /* position: relative;
+  margin-left: 400px; */
+}
+
+.yelp-search {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  /* position: fixed; */
+}
+
+.weather-search {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  /* position: fixed; */
 }
 
 .App-link {
@@ -35,4 +60,12 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.pokemon-list img {
+  width: 100px; 
+}
+
+.business-list img {
+  width: 100px; 
 }
